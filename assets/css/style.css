@@ -1,0 +1,27 @@
+#color-selection {
+background-color: black;
+width: 85%;
+height:65vh;
+margin: auto;
+display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* for horizontal aligning of child divs */
+  justify-content: center;
+  /* for vertical aligning */
+  align-items: center;
+}
+
+.row {
+    display: flex;
+}
+
+.box {
+    border-style: solid;
+    border-color: white;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+
+
+}
