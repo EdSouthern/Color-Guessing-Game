@@ -1,6 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+body {
+  background-image: linear-gradient(to bottom right,#8f71ff, #8bffff);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1, h2 {
+  font-family: 'Nunito';
+  color: darkslategray;
+}
+
+header {
+  text-align: center;
+
+}
+
 #color-selection {
-background-color: black;
-width: 85%;
+background-color:#f8f8ff;
+width: 65%;
 height:65vh;
 margin: auto;
 display: flex;
@@ -18,10 +35,26 @@ display: flex;
 
 .box {
     border-style: solid;
-    border-color: white;
+    border-radius: 25px;
+    border-color:black;
     width: 200px;
     height: 200px;
     margin: 20px;
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+}
 
+.fade-out {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
 
+#instructions {
+  font-family: 'Nunito';
+  text-align: center;
+}
+
+.scores {
+font-family: 'Nunito';
+font-size: 2rem;
 }

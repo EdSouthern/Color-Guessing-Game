@@ -1,5 +1,50 @@
+let questionColor;
+let boxColors;
+
+let boxes = document.querySelectorAll(".box");
+
+function initialize() {
+    for(let i=0; i<boxes.length; i++) {
+        boxes[i].addEventListener('click', function() {
+            checkColor(i)
+        });
+    }
+}
+
+function checkColor(i) {
+    const boxColor = boxColors[i]
+    if(boxColor.r === questionColor.r && boxColor.g === questionColor.g && boxColor.b === questionColor.b) {
+        correctAnswer();
+        alert('You won!!!!');
+        loadNewGame();
+    } else {
+        wrongAnswer(i);
+        alert('Wrong answer');
+    }
+} 
+
+function loadNewGame() {
+    questionColor = setColorQuestion();
+
+    boxColors = [
+        questionColor,
+        generateColor(),
+        generateColor(),
+        generateColor(),
+        generateColor(),
+        generateColor(),
+    ]
+
+    boxColors = randomizeArray(boxColors);
+
+    for(let i = 0; i< boxes.length; i++) {
+        boxes[i].style.backgroundColor = colorToRGBString(boxColors[i]);
+    }
+}
+
 // When the dom has finished loading the color question is set 
-onLoad()
+initialize();
+loadNewGame();
 /**
  * Generates a random interger between 0-255
  */
@@ -56,38 +101,18 @@ function randomizeArray(array) {
     return array;
 }
 
-function onLoad() {
-    const questionColor = setColorQuestion();
-
-    let boxColors = [
-        questionColor,
-        generateColor(),
-        generateColor(),
-        generateColor(),
-        generateColor(),
-        generateColor(),
-    ]
-
-    boxColors = randomizeArray(boxColors);
-
-    console.log(boxColors);
-
-    let boxes = document.querySelectorAll(".box");
-
-    for( let i=0; i<boxes.length; i++) {
-        boxes[i].style.backgroundColor = colorToRGBString(boxColors[i]);
-        boxes[i].addEventListener('click', function() {
-            checkColor(boxColors[i])
-        });
-        
-        onLoad()
+function correctAnswer () {
+    let oldScore = parseInt(document.getElementById("correct").innerHTML);
+    document.getElementById("correct").innerHTML = ++oldScore
+    const hiddenBoxes = document.querySelectorAll(".box.fade-out")
+    for(let i = 0; i < hiddenBoxes.length; i++) {
+        const hiddenBox = hiddenBoxes[i];
+        hiddenBox.classList.remove("fade-out");
     }
+}
 
-    function checkColor(boxColor) {
-        if(boxColor.r === questionColor.r && boxColor.g === questionColor.g && boxColor.b === questionColor.b) {
-            alert('You won!!!!')
-        } else {
-            alert('Wrong answer');
-        }
-    }
+function wrongAnswer (i) {
+    let oldScore = parseInt(document.getElementById("wrong").innerHTML);
+    document.getElementById("wrong").innerHTML = ++oldScore
+    document.getElementsByClassName("box")[i].classList.add("fade-out");
 }
