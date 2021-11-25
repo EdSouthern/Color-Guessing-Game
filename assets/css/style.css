@@ -20,12 +20,10 @@ width: 65%;
 height:65vh;
 margin: auto;
 display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  /* for horizontal aligning of child divs */
-  justify-content: center;
-  /* for vertical aligning */
-  align-items: center;
+flex-wrap: wrap;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 }
 
 .row {
@@ -54,7 +52,24 @@ display: flex;
 }
 
 .scores {
-font-family: 'Nunito';
-font-size: 1rem;
-text-align: right;
+  font-family: 'Nunito';
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.game-over-wrapper {
+  position: absolute;
+  display: none;
+}
+
+.game-over-show-wrapper {
+  display: block;
+  text-align: center;
+  color:red
+}
+
+button {
+  position: absolute;
+  right: 18%;
+  top: 20.5%;
 }

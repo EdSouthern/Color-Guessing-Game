@@ -24,21 +24,25 @@ function checkColor(i) {
 } 
 
 function loadNewGame() {
-    questionColor = setColorQuestion();
+    if (document.getElementById("correct").innerHTML < 2) {
+        revealBoxes();
+        questionColor = setColorQuestion();
+        boxColors = [
+            questionColor,
+            generateColor(),
+            generateColor(),
+            generateColor(),
+            generateColor(),
+            generateColor(),
+        ]
 
-    boxColors = [
-        questionColor,
-        generateColor(),
-        generateColor(),
-        generateColor(),
-        generateColor(),
-        generateColor(),
-    ]
+        boxColors = randomizeArray(boxColors);
 
-    boxColors = randomizeArray(boxColors);
-
-    for(let i = 0; i< boxes.length; i++) {
-        boxes[i].style.backgroundColor = colorToRGBString(boxColors[i]);
+        for(let i = 0; i< boxes.length; i++) {
+            boxes[i].style.backgroundColor = colorToRGBString(boxColors[i]);
+        }
+    } else { 
+        gameOver();
     }
 }
 
@@ -103,16 +107,55 @@ function randomizeArray(array) {
 
 function correctAnswer () {
     let oldScore = parseInt(document.getElementById("correct").innerHTML);
-    document.getElementById("correct").innerHTML = ++oldScore
-    const hiddenBoxes = document.querySelectorAll(".box.fade-out")
+    document.getElementById("correct").innerHTML = ++oldScore;
+}
+
+function wrongAnswer(i) {
+    let oldScore = parseInt(document.getElementById("wrong").innerHTML);
+    document.getElementById("wrong").innerHTML = ++oldScore;
+    const box = document.getElementsByClassName("box")[i];
+    hideBox(box);
+}
+
+function hideBox(box){
+    box.classList.add("fade-out");
+}
+
+function hideAllBoxes() {
+    const boxesToHide = document.querySelectorAll(".box:not(.fade-out)");
+    for (let i = 0; i < boxesToHide.length; i++) {
+        const boxToHide = boxesToHide[i];
+        hideBox(boxToHide);
+    }
+}
+
+
+document.getElementById("reset").addEventListener('click', function() {
+    reset()
+ });
+
+
+ function reset() {
+    loadNewGame();
+    document.getElementById("correct").innerHTML = 0;
+    document.getElementById("wrong").innerHTML = 0;
+    revealBoxes();
+    const gameOverWrapper = document.getElementsByClassName("game-over-wrapper")[0];
+    gameOverWrapper.classList.remove("game-over-show-wrapper")
+ }
+
+ function revealBoxes() {
+    const hiddenBoxes = document.querySelectorAll(".box.fade-out");
+    console.log(hiddenBoxes);
     for(let i = 0; i < hiddenBoxes.length; i++) {
         const hiddenBox = hiddenBoxes[i];
         hiddenBox.classList.remove("fade-out");
     }
-}
+ }
 
-function wrongAnswer (i) {
-    let oldScore = parseInt(document.getElementById("wrong").innerHTML);
-    document.getElementById("wrong").innerHTML = ++oldScore
-    document.getElementsByClassName("box")[i].classList.add("fade-out");
+function gameOver() {
+    hideAllBoxes();
+    const gameOverWrapper = document.getElementsByClassName("game-over-wrapper")[0];
+    gameOverWrapper.classList.add("game-over-show-wrapper")
 }
+ 
