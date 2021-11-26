@@ -8,34 +8,44 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>Guess the colour!</h1>
-        <h2>Colour: <span id="random-color"></span></h2>
-        <div>
-            <p class="scores">Correct Answers <span id="correct">0</span></p>
-            <p class="scores">Wrong Answers <span id="wrong">0</span></p>
+    <div id="bg">
+        <header>
+            <h1>Guess the colour!</h1>
+            <h2>Colour: <span id="random-color"></span></h2>
+            <div>
+                <p class="scores">Correct Answers <span id="score">0</span></p>
+                <p class="scores">Lives <span id="lives">10</span></p>
+            </div>
+            <button id = "top-btn" type="button">Reset</button>
+        </header>
+        <div id="color-selection">
+            <div class="game-over-wrapper">
+                <h2 id="game-over-title">
+                    Game Over
+                </h2>
+                <h3>You scored <span id="final-score">0</span></h3>
+            </div>
+            <div class="you-win-wrapper">
+                <h2 id="you-win-title">
+                    Congratulations you win!
+                </h2>
+                <h3>Lives remaining <span id="lives-remaining">0</span></h3>
+            </div>
+            <div class="boxes">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
         </div>
-        <button id="reset" type="button">Reset</button>
-    </header>
-    <div id="color-selection">
-        <div class="game-over-wrapper">
-            <h2 id="game-over">Game Over</h2>
-            <h3 id="score">You scored <span id="final-score">0</span></h3>
+        <div id="instructions">
+            <p id="instructions">How to play: Guess the correct color that corresponds to the RGB value provided!
+                You have 10 lives and to win you must get 10 right!
+            </p>
+            
         </div>
-        <div class="row">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-        </div>
-        <div class="row">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-        </div>
-    </div>
-    <div>
-        <p id="instructions">How to play: Guess the correct color that corresponds to the RGB value provided!</p>
-        
     </div>
     <script src="./assets/js/script.js"></script>
 </body>

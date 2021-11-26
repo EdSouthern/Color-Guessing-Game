@@ -1,7 +1,11 @@
+const TOTAL_LIVES = 10;
+const NO_LIVES = 0;
+const MAX_SCORE = 10;
 let questionColor;
 let boxColors;
-
 let boxes = document.querySelectorAll(".box");
+let lives = TOTAL_LIVES;
+let score = 0;
 
 function initialize() {
     for(let i=0; i<boxes.length; i++) {
@@ -14,35 +18,28 @@ function initialize() {
 function checkColor(i) {
     const boxColor = boxColors[i]
     if(boxColor.r === questionColor.r && boxColor.g === questionColor.g && boxColor.b === questionColor.b) {
-        correctAnswer();
-        alert('You won!!!!');
-        loadNewGame();
+        correctAnswer(i);
     } else {
         wrongAnswer(i);
-        alert('Wrong answer');
     }
 } 
 
 function loadNewGame() {
-    if (document.getElementById("correct").innerHTML < 2) {
-        revealBoxes();
-        questionColor = setColorQuestion();
-        boxColors = [
-            questionColor,
-            generateColor(),
-            generateColor(),
-            generateColor(),
-            generateColor(),
-            generateColor(),
-        ]
+    revealBoxes();
+    questionColor = setColorQuestion();
+    boxColors = [
+        questionColor,
+        generateColor(),
+        generateColor(),
+        generateColor(),
+        generateColor(),
+        generateColor(),
+    ]
 
-        boxColors = randomizeArray(boxColors);
+    boxColors = randomizeArray(boxColors);
 
-        for(let i = 0; i< boxes.length; i++) {
-            boxes[i].style.backgroundColor = colorToRGBString(boxColors[i]);
-        }
-    } else { 
-        gameOver();
+    for(let i = 0; i< boxes.length; i++) {
+        boxes[i].style.backgroundColor = colorToRGBString(boxColors[i]);
     }
 }
 
@@ -106,15 +103,25 @@ function randomizeArray(array) {
 }
 
 function correctAnswer () {
-    let oldScore = parseInt(document.getElementById("correct").innerHTML);
-    document.getElementById("correct").innerHTML = ++oldScore;
+    setScore(score + 1);
+    alert('You won!!!!');
+    if(score === MAX_SCORE) {
+        userWins();
+        // render some winning text with the score
+    } else {
+        loadNewGame();
+    }
 }
 
 function wrongAnswer(i) {
-    let oldScore = parseInt(document.getElementById("wrong").innerHTML);
-    document.getElementById("wrong").innerHTML = ++oldScore;
-    const box = document.getElementsByClassName("box")[i];
-    hideBox(box);
+    setLives(lives - 1);
+    alert('Wrong answer');
+    if(lives === NO_LIVES) {
+        gameOver();
+    } else {
+        const box = document.getElementsByClassName("box")[i];
+        hideBox(box);
+    }
 }
 
 function hideBox(box){
@@ -129,16 +136,25 @@ function hideAllBoxes() {
     }
 }
 
+function setScore(newScore) {
+    score = newScore;
+    document.getElementById("score").innerHTML = score;
+}
 
-document.getElementById("reset").addEventListener('click', function() {
+function setLives(newLives) {
+    lives = newLives;
+    document.getElementById("lives").innerHTML = lives;
+}
+
+document.getElementById("top-btn").addEventListener('click', function() {
     reset()
- });
+ })
 
 
  function reset() {
     loadNewGame();
-    document.getElementById("correct").innerHTML = 0;
-    document.getElementById("wrong").innerHTML = 0;
+    setScore(0);
+    setLives(10);
     revealBoxes();
     const gameOverWrapper = document.getElementsByClassName("game-over-wrapper")[0];
     gameOverWrapper.classList.remove("game-over-show-wrapper")
@@ -156,6 +172,14 @@ document.getElementById("reset").addEventListener('click', function() {
 function gameOver() {
     hideAllBoxes();
     const gameOverWrapper = document.getElementsByClassName("game-over-wrapper")[0];
-    gameOverWrapper.classList.add("game-over-show-wrapper")
+    gameOverWrapper.classList.add("game-over-show-wrapper");
+    document.getElementById("final-score").innerHTML = score;
 }
- 
+
+function userWins() {
+    hideAllBoxes();
+    const youWinWrapper = document.getElementsByClassName("you-win-wrapper")[0];
+    youWinWrapper.classList.add("you-win-show-wrapper");
+    document.getElementById("lives-remaining").innerHTML = lives;
+
+}
