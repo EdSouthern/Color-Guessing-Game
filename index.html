@@ -8,45 +8,43 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="bg">
-        <header>
-            <h1>Guess the colour!</h1>
-            <h2>Colour: <span id="random-color"></span></h2>
+    <header>
+        <h1>Guess the colour!</h1>
+        <div class="banner">
             <div>
                 <p class="scores">Correct Answers <span id="score">0</span></p>
                 <p class="scores">Lives <span id="lives">10</span></p>
             </div>
             <button id = "top-btn" type="button">Reset</button>
-        </header>
-        <div id="color-selection">
-            <div class="game-over-wrapper">
-                <h2 id="game-over-title">
-                    Game Over
-                </h2>
-                <h3>You scored <span id="final-score">0</span></h3>
-            </div>
-            <div class="you-win-wrapper">
-                <h2 id="you-win-title">
-                    Congratulations you win!
-                </h2>
-                <h3>Lives remaining <span id="lives-remaining">0</span></h3>
-            </div>
-            <div class="boxes">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-            </div>
         </div>
-        <div id="instructions">
-            <p id="instructions">How to play: Guess the correct color that corresponds to the RGB value provided!
-                You have 10 lives and to win you must get 10 right!
-            </p>
-            
+    </header>
+    <h2 id="question-color">Colour: <span id="random-color"></span></h2>
+    <div id="color-selection">
+        <div class="game-over-wrapper">
+            <h2 id="game-over-title">
+                Game Over
+            </h2>
+            <h3>You scored <span id="final-score">0</span></h3>
+        </div>
+        <div class="you-win-wrapper">
+            <h2 id="you-win-title">
+                Congratulations you win!
+            </h2>
+            <h3>Lives remaining <span id="lives-remaining">0</span></h3>
+        </div>
+        <div class="boxes">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
         </div>
     </div>
+    <p id="instructions">
+        How to play: Guess the correct color that corresponds to the RGB value provided!
+        You have 10 lives and to win you must get 10 right!
+    </p>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
