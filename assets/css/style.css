@@ -1,3 +1,4 @@
+/* Google font import */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
 
 body {
@@ -5,7 +6,7 @@ body {
   min-height: 100vh;
   background-color: black;
 }
-
+/* Reset Button Styling */
 #top-btn {
   background:white;
   border: none;
@@ -25,7 +26,7 @@ body {
 #color-selection, .banner {
   width: 65%;
 }
-
+/* Game title styling. Used https://welearncode.com/rainbow-text/ for the layered rainbow text */
 h1 {
   margin-top: 0px;
   margin-bottom: 50px;
@@ -46,6 +47,9 @@ h1 {
                -36px 36px #ff5722;
 }
 
+#question-color-wrapper {
+  height: 50px;
+}
 #question-color {
   font-family: 'Nunito';
   color: white;
@@ -77,7 +81,7 @@ header {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-
+/* Styling for the different coloured boxes for my game */
 .box {
     border-style: solid;
     border-radius: 25px;
@@ -89,24 +93,19 @@ header {
     opacity: 1;
     transition: opacity 300ms ease-in-out;
 }
-
+/* Styling for the transition of the boxes once clicked and if wrong */
 .fade-out {
   opacity: 0;
   transition: opacity 300ms ease-in-out;
 }
-
-#instructions {
-  font-family: 'Nunito';
-  text-align: center;
-}
-
+/* Styling for the scores and lives */
 .scores {
   font-family: 'Nunito';
   font-size: 1rem;
   display: inline-block;
   color: white;
 }
-
+/* Styling for the game over event and you win event */
 .game-over-wrapper {
   position: absolute;
   display: none;
@@ -133,8 +132,10 @@ header {
 
 #instructions {
   color: white;
+  font-family: 'Nunito';
+  text-align: center;
 }
-
+/* Media queries to resize the boxes when viewed on smaller screens */
 @media screen and (max-width:1140px) {
 
   .box {
