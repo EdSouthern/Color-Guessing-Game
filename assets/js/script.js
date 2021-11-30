@@ -80,7 +80,7 @@ function colorToRGBString(color) {
 function setColorQuestion () {
     const color = generateColor();
     const rgbString = colorToRGBString(color);
-    document.getElementById("random-color").innerHTML = rgbString;
+    document.getElementById("question-color").innerText = rgbString;
     return color;
 }
 
