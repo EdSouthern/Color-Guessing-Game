@@ -189,7 +189,7 @@ function reset() {
     revealBoxes();
     const gameOverWrapper = document.getElementsByClassName("game-over-wrapper")[0];
     gameOverWrapper.classList.remove("game-over-show-wrapper")
-    const gameOverWrapper = document.getElementsByClassName("you-win-wrapper")[0];
+    const youWinWrapper = document.getElementsByClassName("you-win-wrapper")[0];
     gameOverWrapper.classList.remove("you-win-show-wrapper")
 }
 
