@@ -65,3 +65,9 @@ The site was deployed using Github pages. The live link can be found here https:
     - I used stack overflow to find a function that would randomise an array in order for me to randomise where the correct colour for the user to guess should be. Otherwise each game it would appear in the same position making the game easy for the user to guess. A link to this can be found here : https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array . 
 
 ## Probelms
+
+Whilst developing my site I did run into a few problems, which sometimes at first were not easily fixed. Here is a record of them: 
+
+- In order for my game to recieve when the user clicks on a box, I added an event listner for on click. After testing this as I was adding this within my loadNewGame fucntion, for every round the user progessed it would keep adding event listeners so there would end up being a loop of alerts. To fix this I placed it outside of the function. 
+- When testing at an early stage it was apparent that the winning colour was always in the same position. So in order to fix this I found a array shuffle function which fixed this issue. 
+- When reloading the game by refreshing the webpage I found I was getting what looked like a glitch. After some trial and error I found out this was due to the question colour having no intial content as it is set to a random colour by my JavaScript code which was causing the webpage to jump and look glitchy initally. I found the best way to fix this out was to nest it within a div and set height of this div using CSS. 
