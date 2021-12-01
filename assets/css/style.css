@@ -54,7 +54,7 @@ h1 {
   font-family: 'Nunito';
   color: white;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   
 }
 
@@ -72,15 +72,12 @@ header {
   align-items: center;
 }
 
-.row {
-    display: flex;
-}
-
 .boxes {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
 /* Styling for the different coloured boxes for my game */
 .box {
     border-style: solid;
@@ -101,7 +98,7 @@ header {
 /* Styling for the scores and lives */
 .scores {
   font-family: 'Nunito';
-  font-size: 1rem;
+  font-size: 1.3rem;
   display: inline-block;
   color: white;
 }
