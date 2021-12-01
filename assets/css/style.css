@@ -17,6 +17,11 @@ body {
   padding: 0 20px;
 }
 
+#top-btn:hover {
+background: yellow;
+}
+
+
 .banner {
   display: flex;
   justify-content: space-between;
@@ -90,6 +95,11 @@ header {
     opacity: 1;
     transition: opacity 300ms ease-in-out;
 }
+
+.box:hover {
+  transform: scale(1.1);
+  border-color:black;
+}
 /* Styling for the transition of the boxes once clicked and if wrong */
 .fade-out {
   opacity: 0;
@@ -129,10 +139,15 @@ header {
   font-size: 2.2rem;
 }
 
+#instructions-container {
+  margin: 0px 40px;
+  
+}
 #instructions {
   color: white;
   font-family: 'Nunito', sans-serif;
   text-align: center;
+  font-size: 1.2rem;
 }
 /* Media queries to resize the boxes when viewed on smaller screens */
 @media screen and (max-width:1140px) {
