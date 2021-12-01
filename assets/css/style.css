@@ -98,7 +98,6 @@ header {
 
 .box:hover {
   transform: scale(1.1);
-  border-color:black;
 }
 /* Styling for the transition of the boxes once clicked and if wrong */
 .fade-out {
