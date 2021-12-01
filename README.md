@@ -1,108 +1,67 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Portfoilio Project 2
+View the live project here https://edsouthern.github.io/Color-Guessing-Game/
 
-Welcome EdSouthern,
+This is the site for my front-end web application using HTML, CSS and JavaScript. It is designed to be responsive and accessible on a range of devices.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Website preview](home-page.png)
+![Wesbite preview on phone](home-page-phone.png)
+![Website preview on phone landscape](home-page-phone-landscape.png)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## User Experience (UX)
 
-## Gitpod Reminders
+### - User stories
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- First time vistor goals: 
+    1. As a First Time Visitor, I want to be enticed into playing the game.
+    2. As a First Time Visitor, I want to be able to understand how to play the game as well as the rules.
+    4. As a First time Vistor, I want to play the game.
 
-`python3 -m http.server`
+- Returning vistor goals:
+    1. As a Returning Visitor, I want to attempt to increase my score by guessing more answers correctly under the constraint of lives.
+    2. As a Returning Visitor, I want to work towards and win the game by picking 10 colours correctly under the constraint of 10 lives.
 
-A blue button should appear to click: _Make Public_,
+### - Design  
 
-Another blue button should appear to click: _Open Browser_.
+- Colour scheme
+    - I have chosen to go for a retro theme. The background is black to ensure my coloured boxes stand out in order to entice the user into playing the game. The font apart from the title is all white, to ensure a contrast making the text easily legibe. My title of the site users an overlapped rainbow font to inject some colour and to make the title stick in the users memeory. 
+- Typography
+    - The Nunito font is the main font used throughout the whole website which was imported from google fonts. Sans Serif is used as the fallback font in case for any reason the font isn't being imported into the site correctly. The Nunito font is both attractive and appropriate for my site and feels adds to the theme. 
+ - The game
+    - The game consists of 6 boxes, each a random colour with each iteration of the game. They have a border radius to give them a smooth sleek finish as well as a thin white border to ensure some contrast with the background even for the darker random colours.
+    
+## Features
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- The Color Game
+    - The essential purpose of this site is to provide the user a fun and enjoyable experience of playing a RGB color matching game. The user is provided a random colour in RGB format at the top of the page. They must try and guess which colour this matches from the 6 boxes that appear in the main area of the page. These boxes each take a random colour with one of them always taking the colour provided for the user to guess. The user must click on the box which they they think is the correct one. Doing this will incremnet their score by 1 and load a new round. Picking a wrong colour will hide the box clicked and the user can guess again, however this will decrease the users lives by 1. 
+- Lives and Score
+    - The user starts with 10 lives and and a score of 0 which is displayed in the top left hand corner. Each time a user guesses a colour correctly 1 will be added to their score. This will happen till a score of 10 is reached which is when the user will win the game. Each time a user gets an answer wrong their lives will decrease by 1, till they reach 0 which means the game is over.
+- Game Over and You Win screen
+    - If the user scores 10 all the boxes will hide and some winning text will appear to congratulate the user on winning the game. If the user loses all 10 lives some game over text will appear informing the user that the game is over and providing them with their final score. 
+- Reset Button
+    - A button on the top right is provided for the user to reset the game when desired. At any time this will reset the game. The score and lives will return to inital values, as well as a new set of colors loading meaning the game is totally reset. The button is clearly visible on the top right to ensure the user can always find it.
 
-A blue button should appear to click: _Make Public_,
+## Technologies used
 
-Another blue button should appear to click: _Open Browser_.
+- HTML5
+- CSS
+- JavaScript
+## Testing
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- Html
+    - No erros were returned when passing through the Nu html checker 
 
-To log into the Heroku toolbelt CLI:
+- CSS
+    - No erros were returned when passing through the W3C validator.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+In additon to this I also throughly tested the responsivness and working of the webpage and didn't find any issues. I tested the resposviness on different devices using responsinator.com.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Deployment
 
-------
+The site was deployed using Github pages. The live link can be found here https://edsouthern.github.io/Color-Guessing-Game/
 
-## Release History
+- Content
+    - My font 'Nunito' was taken from google fonts. 
+    - I found some code in order to make layered rainbow font for my title on: https://welearncode.com/rainbow-text/ .
+    - I used stack overflow to find a function that would randomise an array in order for me to randomise where the correct colour for the user to guess should be. Otherwise each game it would appear in the same position making the game easy for the user to guess. A link to this can be found here : https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array . 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+## Probelms
