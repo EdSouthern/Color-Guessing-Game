@@ -1,7 +1,7 @@
 /** Setting of global varaibles for my game, includes setting
  * the maximum score, number of lives and starting score.
  **/
-const TOTAL_LIVES = 10;
+const TOTAL_LIVES = 2;
 const NO_LIVES = 0;
 const MAX_SCORE = 10;
 let questionColor;
@@ -144,6 +144,7 @@ function wrongAnswer(i) {
 /** Hides a box by adding a class list of fade-out 
 */
 function hideBox(box) {
+    box.style.display = 'none';
     box.classList.add("fade-out");
 }
 
@@ -200,6 +201,7 @@ function revealBoxes() {
     const hiddenBoxes = document.querySelectorAll(".box.fade-out");
     for (let i = 0; i < hiddenBoxes.length; i++) {
         const hiddenBox = hiddenBoxes[i];
+        hiddenBox.style.display = 'block';
         hiddenBox.classList.remove("fade-out");
     }
 }
@@ -212,6 +214,9 @@ function gameOver() {
     const gameOverWrapper = document.getElementsByClassName("game-over-wrapper")[0];
     gameOverWrapper.classList.add("game-over-show-wrapper");
     document.getElementById("final-score").innerHTML = score.toString();
+    const formWrapper = document.getElementsByClassName("form-wrapper");
+    formWrapper.classList.add("form-show-wrapper");
+    sendMail();
 }
 /** When the user wins the game by getting
  * 10 correct answers. It will hide all the boxes and render some winning text
@@ -222,4 +227,28 @@ function userWins() {
     const youWinWrapper = document.getElementsByClassName("you-win-wrapper")[0];
     youWinWrapper.classList.add("you-win-show-wrapper");
     document.getElementById("lives-remaining").innerHTML = lives.toString();
+    const formWrapper = document.getElementsByClassName("form-wrapper");
+    formWrapper.classList.add("form-show-wrapper");
+    sendMail();
+}
+
+(function () {
+    emailjs.init("user_tFd9SVDE5e3FDioAW8cdV");
+})();
+
+function sendMail() {
+    let userEmail = document.getElementById("email").value;
+    let userScore = document.getElementById("final-score").innerHTML
+
+    var contactParams = {
+        userEmail,
+        userScore
+    };
+
+    emailjs.send("service_7ztzjoa", "template_x78j718", contactParams).
+    then(function (res) {
+        // email sent (update html to say email sent)
+    }).catch(e => {
+        console.log('There was an error: ' + e);
+    })
 }

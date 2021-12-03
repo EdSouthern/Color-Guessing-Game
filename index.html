@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -30,6 +31,14 @@
                 Game Over
             </h2>
             <h3>You scored <span id="final-score">0</span></h3>
+            <form>
+                <h4>Submit your email to have your score emailed to you</h4>
+            
+                <label for="email">Email Address</label>
+                <input class="text-input" type="email" id="email" name="email_address" required>
+
+                <button onclick="sendMail()" type="button" class="send-mail-btn">Send Now</button>
+            </form>
         </div>
         <div class="you-win-wrapper">
             <h2 id="you-win-title">
@@ -37,15 +46,16 @@
             </h2>
             <h3>Lives remaining <span id="lives-remaining">0</span></h3>
         </div>
-        <form>
-            <h4>Submit your email to have your score emailed to you</h4>
+        <div class="form-wrapper">
+            <form>
+                <h4>Submit your email to have your score emailed to you</h4>
             
-            <label for="email">Email Address</label>
-            <input class="text-input" type="email" id="email" name="email_address" required>
+                <label for="email">Email Address</label>
+                <input class="text-input" type="email" id="email" name="email_address" required>
 
-            <button onclick="sendMail()" type="button" class="send-mail-btn">Send Now</button>
-        </form>
-        </form>
+                <button onclick="sendMail()" type="button" class="send-mail-btn">Send Now</button>
+            </form>
+        </div>
         <div class="boxes">
             <div class="box"></div>
             <div class="box"></div>
