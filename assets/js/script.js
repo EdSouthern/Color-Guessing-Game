@@ -144,8 +144,11 @@ function wrongAnswer(i) {
 /** Hides a box by adding a class list of fade-out 
 */
 function hideBox(box) {
-    box.style.display = 'none';
     box.classList.add("fade-out");
+}
+
+function vanishBox(box) {
+    box.classList.add("hide-box")
 }
 
 /** Hides every box by finding boxes without the 
@@ -156,6 +159,14 @@ function hideAllBoxes() {
     for (let i = 0; i < boxesToHide.length; i++) {
         const boxToHide = boxesToHide[i];
         hideBox(boxToHide);
+    }
+}
+
+function vanishBoxes () {
+    const boxesToVanish = document.querySelectorAll(".box");
+    for (let i = 0; i < boxesToVanish.length; i++) {
+        const boxToVanish = boxesToVanish[i];
+        vanishBox(boxToVanish)
     }
 }
 
@@ -205,30 +216,29 @@ function revealBoxes() {
         hiddenBox.classList.remove("fade-out");
     }
 }
+
 /** When the user loses the game by using
  * all 10 lives, it will hide all boxes making room for some game over text 
  * with the users final score to render
  */
 function gameOver() {
-    hideAllBoxes();
     const gameOverWrapper = document.getElementsByClassName("game-over-wrapper")[0];
     gameOverWrapper.classList.add("game-over-show-wrapper");
     document.getElementById("final-score").innerHTML = score.toString();
-    const formWrapper = document.getElementsByClassName("form-wrapper");
-    formWrapper.classList.add("form-show-wrapper");
+    const box = document.getElementsByClassName("box")[0];
+    vanishBoxes();
     sendMail();
 }
+
 /** When the user wins the game by getting
  * 10 correct answers. It will hide all the boxes and render some winning text
  * with the final score.
  */ 
 function userWins() {
-    hideAllBoxes();
     const youWinWrapper = document.getElementsByClassName("you-win-wrapper")[0];
     youWinWrapper.classList.add("you-win-show-wrapper");
     document.getElementById("lives-remaining").innerHTML = lives.toString();
-    const formWrapper = document.getElementsByClassName("form-wrapper");
-    formWrapper.classList.add("form-show-wrapper");
+    vanishBoxes();
     sendMail();
 }
 

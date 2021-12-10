@@ -104,6 +104,10 @@ header {
   opacity: 0;
   transition: opacity 300ms ease-in-out;
 }
+
+.hide-box {
+  display: none;
+}
 /* Styling for the scores and lives */
 .scores {
   font-family: 'Nunito';
@@ -147,8 +151,6 @@ header {
   color: white;
   font-size: 1.8rem;
 }
-
-
 
 #instructions-container {
   margin: 0px 40px;
