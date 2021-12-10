@@ -32,13 +32,13 @@
             </h2>
             <h3>You scored <span id="final-score">0</span></h3>
 
-            <form>
+            <form onsubmit="sub-btn.disabled == true; return true;">
                 <h4>Submit your email to have your score emailed to you</h4>
             
                 <label for="email">Email Address</label>
                 <input class="text-input" type="email" id="email" name="email_address" required>
 
-                <button onclick="sendMail()" type="button" class="send-mail-btn">Send Now</button>
+                <button onclick="sendMail()" type="button" name="sub-btn" class="send-mail-btn">Send Now</button>
             </form>
         </div>
         <div class="you-win-wrapper">
@@ -47,14 +47,16 @@
             </h2>
             <h3>Lives remaining <span id="lives-remaining">0</span></h3>
 
-            <form>
+            <form onsubmit="sub-btn.disabled == true; return true;">
                 <h4>Submit your email to have your score emailed to you</h4>
             
                 <label for="email">Email Address</label>
                 <input class="text-input" type="email" id="email" name="email_address" required>
 
-                <button onclick="sendMail()" type="button" class="send-mail-btn">Send Now</button>
+                <button onclick="sendMail()" type="button" name="sub-btn" class="send-mail-btn">Send Now</button>
             </form>
+
+
 
         </div>
         

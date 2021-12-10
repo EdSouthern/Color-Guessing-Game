@@ -215,6 +215,11 @@ function revealBoxes() {
         hiddenBox.style.display = 'block';
         hiddenBox.classList.remove("fade-out");
     }
+    const vanishedBoxes = document.querySelectorAll(".box.hide-box");
+    for (let i = 0; i < vanishedBoxes.length; i++) {
+        const vanishedBox = vanishedBoxes[i];
+        vanishedBox.classList.remove("hide-box")
+    }
 }
 
 /** When the user loses the game by using
@@ -258,6 +263,7 @@ function sendMail() {
     emailjs.send("service_7ztzjoa", "template_x78j718", contactParams).
     then(function (res) {
         // email sent (update html to say email sent)
+        
     }).catch(e => {
         console.log('There was an error: ' + e);
     })
