@@ -3,6 +3,7 @@
  **/
 const TOTAL_LIVES = 2;
 const NO_LIVES = 0;
+const INITIAL_SCORE = 0;
 const MAX_SCORE = 10;
 let questionColor;
 let boxColors;
@@ -14,6 +15,8 @@ let score = 0;
  * to click them.
  */
 function initialize() {
+    document.getElementById('score').innerHTML = 0;
+    document.getElementById('lives').innerHTML = TOTAL_LIVES;
     for (let i = 0; i < boxes.length; i++) {
         boxes[i].addEventListener('click', function () {
             checkColor(i)
@@ -148,7 +151,7 @@ function hideBox(box) {
 }
 
 function vanishBox(box) {
-    box.classList.add("hide-box")
+    box.classList.add("hide-box");
 }
 
 /** Hides every box by finding boxes without the 
@@ -196,8 +199,8 @@ document.getElementById("top-btn").addEventListener('click', function () {
  */
 function reset() {
     loadNewGame();
-    setScore(0);
-    setLives(10);
+    setScore(INITIAL_SCORE);
+    setLives(TOTAL_LIVES);
     revealBoxes();
     const gameOverWrapper = document.getElementsByClassName("game-over-wrapper")[0];
     gameOverWrapper.classList.remove("game-over-show-wrapper")
@@ -212,7 +215,6 @@ function revealBoxes() {
     const hiddenBoxes = document.querySelectorAll(".box.fade-out");
     for (let i = 0; i < hiddenBoxes.length; i++) {
         const hiddenBox = hiddenBoxes[i];
-        hiddenBox.style.display = 'block';
         hiddenBox.classList.remove("fade-out");
     }
     const vanishedBoxes = document.querySelectorAll(".box.hide-box");
@@ -230,9 +232,7 @@ function gameOver() {
     const gameOverWrapper = document.getElementsByClassName("game-over-wrapper")[0];
     gameOverWrapper.classList.add("game-over-show-wrapper");
     document.getElementById("final-score").innerHTML = score.toString();
-    const box = document.getElementsByClassName("box")[0];
     vanishBoxes();
-    sendMail();
 }
 
 /** When the user wins the game by getting
@@ -244,7 +244,6 @@ function userWins() {
     youWinWrapper.classList.add("you-win-show-wrapper");
     document.getElementById("lives-remaining").innerHTML = lives.toString();
     vanishBoxes();
-    sendMail();
 }
 
 (function () {
