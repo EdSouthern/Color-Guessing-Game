@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -26,37 +26,22 @@
     </div>
 
     <div id="color-selection">
-        <div class="game-over-wrapper">
-            <h2 id="game-over-title">
-                Game Over
+        <div class="game-finished-wrapper game-finished-wrapper-hide">
+            <h2 id="game-finished-title">
+     
             </h2>
-            <h3>You scored <span id="final-score">0</span></h3>
-
-            <form onsubmit="sub-btn.disabled == true; return true;">
+            <h3 id="game-finished-description"></h3>
+     
+            <form id="email-form" class="form-wrapper" onsubmit="sub-btn.disabled == true; return true;">
                 <h4>Submit your email to have your score emailed to you</h4>
-            
+     
                 <label for="email">Email Address</label>
-                <input class="text-input" type="email" id="email" name="email_address" required>
-
+                <input id="email" class="text-input" type="email" name="email_address" required>
+     
                 <button onclick="sendMail()" type="button" name="sub-btn" class="send-mail-btn">Send Now</button>
             </form>
         </div>
-        <div class="you-win-wrapper">
-            <h2 id="you-win-title">
-                Congratulations you win!
-            </h2>
-            <h3>Lives remaining <span id="lives-remaining">0</span></h3>
-
-            <form onsubmit="sub-btn.disabled == true; return true;">
-                <h4>Submit your email to have your score emailed to you</h4>
-            
-                <label for="email">Email Address</label>
-                <input class="text-input" type="email" id="email" name="email_address" required>
-
-                <button onclick="sendMail()" type="button" name="sub-btn" class="send-mail-btn">Send Now</button>
-            </form>
-        </div>
-        
+     
         <div class="boxes">
             <div class="box"></div>
             <div class="box"></div>
@@ -65,7 +50,8 @@
             <div class="box"></div>
             <div class="box"></div>
         </div>
-    </div>
+     </div>
+     
     
 <div id="instructions-container">
     <p id="instructions">
