@@ -4,7 +4,9 @@ View the live project here https://edsouthern.github.io/Color-Guessing-Game/
 This is the site for my front-end web application using HTML, CSS and JavaScript. It is designed to be responsive and accessible on a range of devices.
 
 ![Website preview](.//assets/imgs/home-page.png)
+
 ![Wesbite preview on phone](.//assets/imgs/home-page-phone.png)
+
 ![Website preview on phone landscape](.//assets/imgs/home-page-landscape.png)
 
 ## User Experience (UX)
@@ -39,6 +41,8 @@ This is the site for my front-end web application using HTML, CSS and JavaScript
     - If the user scores 10 all the boxes will hide and some winning text will appear to congratulate the user on winning the game. If the user loses all 10 lives some game over text will appear informing the user that the game is over and providing them with their final score. 
 - Reset Button
     - A button on the top right is provided for the user to reset the game when desired. At any time this will reset the game. The score and lives will return to inital values, as well as a new set of colors loading meaning the game is totally reset. The button is clearly visible on the top right to ensure the user can always find it.
+- Email Score
+    - A form is shown when the game is over giving the user an option to send themselves an email with their score. After  the user submits there email by pressing the button, the form will vanish to prevent resubmission. I used emailJS for this service. 
 
 ## Technologies used
 
@@ -65,6 +69,7 @@ The site was deployed using Github pages. The live link can be found here https:
     - My font 'Nunito' was taken from google fonts. 
     - I found some code in order to make layered rainbow font for my title on: https://welearncode.com/rainbow-text/ .
     - I used stack overflow to find a function that would randomise an array in order for me to randomise where the correct colour for the user to guess should be. Otherwise each game it would appear in the same position making the game easy for the user to guess. A link to this can be found here : https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array . 
+    - The email function was using https://www.emailjs.com/. 
 
 ## Probelms
 
