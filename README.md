@@ -49,10 +49,11 @@ This is the site for my front-end web application using HTML, CSS and JavaScript
 ## Testing
 
 - Html
-    - No erros were returned when passing through the Nu html checker 
+    - No erros were returned when passing through the Nu html checker (https://validator.w3.org/nu/?doc=https%3A%2F%2Fedsouthern.github.io%2FColor-Guessing-Game%2F)
+    - There were 3 warnings each for empty heading elements, however these are necesarry as if these are populuated it causes the page to flicker and look glitchy. 
 
 - CSS
-    - No erros were returned when passing through the W3C validator.
+    - No erros were returned when passing through the W3C validator. (https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fedsouthern.github.io%2FColor-Guessing-Game%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 In additon to this I also throughly tested the responsivness and working of the webpage and didn't find any issues. I tested the resposviness on different devices using responsinator.com.
 
