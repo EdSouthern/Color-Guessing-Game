@@ -4,8 +4,8 @@ View the live project here https://edsouthern.github.io/Color-Guessing-Game/
 This is the site for my front-end web application using HTML, CSS and JavaScript. It is designed to be responsive and accessible on a range of devices.
 
 ![Website preview](.//assets/imgs/home-page.png)
-![Wesbite preview on phone](.//assets/home-page-phone.png)
-![Website preview on phone landscape](.//assets/home-page-phone-landscape.png)
+![Wesbite preview on phone](.//assets/imgs/home-page-phone.png)
+![Website preview on phone landscape](.//assets/imgs/home-page-landscape.png)
 
 ## User Experience (UX)
 
