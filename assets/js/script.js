@@ -1,7 +1,7 @@
 /** Setting of global varaibles for my game, includes setting
  * the maximum score, number of lives and starting score.
  **/
-const TOTAL_LIVES = 2;
+const TOTAL_LIVES = 10;
 const NO_LIVES = 0;
 const INITIAL_SCORE = 0;
 const MAX_SCORE = 10;
